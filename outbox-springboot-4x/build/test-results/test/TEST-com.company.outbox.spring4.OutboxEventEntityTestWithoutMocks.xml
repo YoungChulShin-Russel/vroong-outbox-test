@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:32:03.608Z" hostname="MB-ycshin" time="0.004">
+<testsuite name="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:52:20.771Z" hostname="MB-ycshin" time="0.004">
   <properties/>
-  <testcase name="markAsFailed를_호출하면_상태가_FAILED로_변경된다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.002"/>
+  <testcase name="markAsFailed를_호출하면_상태가_FAILED로_변경된다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.001"/>
   <testcase name="from_메서드로_OutboxEvent에서_Entity로_변환할_수_있다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.0"/>
   <testcase name="생성자로_OutboxEventEntity를_만들_수_있다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.0"/>
-  <testcase name="toDomain_메서드로_Entity에서_OutboxEvent로_변환할_수_있다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.0"/>
+  <testcase name="toDomain_메서드로_Entity에서_OutboxEvent로_변환할_수_있다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.001"/>
   <testcase name="markAsPublished를_호출하면_상태가_PUBLISHED로_변경된다()" classname="com.company.outbox.spring4.OutboxEventEntityTestWithoutMocks" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

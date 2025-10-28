@@ -14,14 +14,12 @@ public class SpringOutboxScheduler {
     
     private final OutboxProcessor outboxProcessor;
     
-    @Value("${outbox.kafka.default-topic:outbox-events}")
-    private String defaultTopic;
     
     @Scheduled(fixedDelayString = "${outbox.scheduler.fixed-delay:5000}")
     public void processOutboxEvents() {
         try {
             log.debug("Processing outbox events...");
-            outboxProcessor.processOutboxEvents(defaultTopic);
+            outboxProcessor.processOutboxEvents();
         } catch (Exception e) {
             log.error("Error processing outbox events: {}", e.getMessage(), e);
         }

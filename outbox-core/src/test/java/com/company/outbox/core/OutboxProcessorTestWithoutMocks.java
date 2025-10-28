@@ -13,13 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class OutboxProcessorTestWithoutMocks {
 
     private TestOutboxRepository testRepository;
-    private TestKafkaPublisher testPublisher;
+    private TestMessagePublisher testPublisher;
     private OutboxProcessor outboxProcessor;
 
     @BeforeEach
     void setUp() {
         testRepository = new TestOutboxRepository();
-        testPublisher = new TestKafkaPublisher();
+        testPublisher = new TestMessagePublisher();
         outboxProcessor = new OutboxProcessor(testRepository, testPublisher);
     }
 
@@ -28,7 +28,7 @@ class OutboxProcessorTestWithoutMocks {
         // given - no pending events
 
         // when
-        outboxProcessor.processOutboxEvents("test-topic");
+        outboxProcessor.processOutboxEvents();
 
         // then
         assertThat(testPublisher.getPublishedEvents()).isEmpty();
@@ -43,7 +43,7 @@ class OutboxProcessorTestWithoutMocks {
         testRepository.addPendingEvent(event);
 
         // when
-        outboxProcessor.processOutboxEvents("test-topic");
+        outboxProcessor.processOutboxEvents();
 
         // then
         assertThat(testPublisher.getPublishedEvents()).hasSize(1);
@@ -61,7 +61,7 @@ class OutboxProcessorTestWithoutMocks {
         testPublisher.setShouldFail(true);
 
         // when
-        outboxProcessor.processOutboxEvents("test-topic");
+        outboxProcessor.processOutboxEvents();
 
         // then
         assertThat(testPublisher.getPublishedEvents()).isEmpty();
@@ -108,7 +108,7 @@ class OutboxProcessorTestWithoutMocks {
         }
     }
 
-    static class TestKafkaPublisher implements KafkaPublisher {
+    static class TestMessagePublisher implements MessagePublisher {
         private final List<OutboxEvent> publishedEvents = new ArrayList<>();
         private boolean shouldFail = false;
 
@@ -121,16 +121,9 @@ class OutboxProcessorTestWithoutMocks {
         }
 
         @Override
-        public void publish(String topic, String key, String message) {
+        public void publish(OutboxEvent event) {
             if (shouldFail) {
-                throw new RuntimeException("Kafka 연결 실패");
-            }
-        }
-
-        @Override
-        public void publish(OutboxEvent event, String topic) {
-            if (shouldFail) {
-                throw new RuntimeException("Kafka 연결 실패");
+                throw new RuntimeException("메시지 발행 실패");
             }
             publishedEvents.add(event);
         }

@@ -1,6 +1,6 @@
 package com.company.outbox.spring4;
 
-import com.company.outbox.core.KafkaPublisher;
+import com.company.outbox.core.MessagePublisher;
 import com.company.outbox.core.OutboxProcessor;
 import com.company.outbox.core.OutboxRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,8 +18,8 @@ public class OutboxAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public OutboxProcessor outboxProcessor(OutboxRepository outboxRepository, 
-                                         KafkaPublisher kafkaPublisher) {
-        return new OutboxProcessor(outboxRepository, kafkaPublisher);
+                                         MessagePublisher messagePublisher) {
+        return new OutboxProcessor(outboxRepository, messagePublisher);
     }
     
     @Bean

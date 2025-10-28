@@ -9,14 +9,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OutboxProcessor {
     private final OutboxRepository outboxRepository;
-    private final KafkaPublisher kafkaPublisher;
+    private final MessagePublisher messagePublisher;
 
-    public void processOutboxEvents(String defaultTopic) {
+    public void processOutboxEvents() {
         List<OutboxEvent> pendingEvents = outboxRepository.findPendingEvents();
         
         for (OutboxEvent event : pendingEvents) {
             try {
-                kafkaPublisher.publish(event, defaultTopic);
+                messagePublisher.publish(event);
                 
                 event.markAsPublished();
                 outboxRepository.save(event);
