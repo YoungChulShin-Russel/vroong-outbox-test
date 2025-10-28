@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "outbox_event")
+@Table(name = "outbox_events")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OutboxEventEntity {
@@ -25,7 +25,7 @@ public class OutboxEventEntity {
     @Column(name = "type", nullable = false, length = 128)
     private String type;
     
-    @Column(name = "payload", nullable = false, columnDefinition = "JSON")
+    @Column(name = "payload", nullable = false, columnDefinition = "TEXT")
     private String payload;
     
     @Enumerated(EnumType.STRING)

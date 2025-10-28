@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.company.outbox.core.OutboxEventTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:26:12.426Z" hostname="MB-ycshin" time="0.022">
+<testsuite name="com.company.outbox.core.OutboxEventTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:32:02.402Z" hostname="MB-ycshin" time="0.024">
   <properties/>
-  <testcase name="markAsFailed를_호출하면_상태가_FAILED로_변경된다()" classname="com.company.outbox.core.OutboxEventTest" time="0.018"/>
+  <testcase name="markAsFailed를_호출하면_상태가_FAILED로_변경된다()" classname="com.company.outbox.core.OutboxEventTest" time="0.02"/>
   <testcase name="markAsPublished를_호출하면_상태가_PUBLISHED로_변경된다()" classname="com.company.outbox.core.OutboxEventTest" time="0.001"/>
-  <testcase name="setId로_ID를_설정할_수_있다()" classname="com.company.outbox.core.OutboxEventTest" time="0.001"/>
+  <testcase name="setId로_ID를_설정할_수_있다()" classname="com.company.outbox.core.OutboxEventTest" time="0.0"/>
   <testcase name="생성자로_OutboxEvent를_만들_수_있다()" classname="com.company.outbox.core.OutboxEventTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
