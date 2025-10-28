@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.company.outbox.spring4.JacksonJsonSerializerTestWithoutMocks" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:26:13.532Z" hostname="MB-ycshin" time="0.083">
+  <properties/>
+  <testcase name="deserialize_메서드가_잘못된_JSON에_대해_예외를_발생시킨다()" classname="com.company.outbox.spring4.JacksonJsonSerializerTestWithoutMocks" time="0.073"/>
+  <testcase name="serialize_메서드가_null_객체를_null_문자열로_직렬화한다()" classname="com.company.outbox.spring4.JacksonJsonSerializerTestWithoutMocks" time="0.003"/>
+  <testcase name="serialize_메서드가_객체를_JSON_문자열로_변환한다()" classname="com.company.outbox.spring4.JacksonJsonSerializerTestWithoutMocks" time="0.003"/>
+  <testcase name="deserialize_메서드가_JSON_문자열을_객체로_변환한다()" classname="com.company.outbox.spring4.JacksonJsonSerializerTestWithoutMocks" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

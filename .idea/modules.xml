@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/vroong-outbox-test.iml" filepath="$PROJECT_DIR$/.idea/vroong-outbox-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/outbox-core/vroong-outbox-test.outbox-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/outbox-core/vroong-outbox-test.outbox-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/outbox-springboot-4x/vroong-outbox-test.outbox-springboot-4x.main.iml" filepath="$PROJECT_DIR$/.idea/modules/outbox-springboot-4x/vroong-outbox-test.outbox-springboot-4x.main.iml" />
     </modules>
   </component>
 </project>

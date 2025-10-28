@@ -1,0 +1,4 @@
+rootProject.name = 'vroong-outbox-test'
+
+include 'outbox-core'
+include 'outbox-springboot-4x'

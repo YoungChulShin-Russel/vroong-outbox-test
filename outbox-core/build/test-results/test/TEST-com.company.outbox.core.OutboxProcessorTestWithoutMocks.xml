@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.company.outbox.core.OutboxProcessorTestWithoutMocks" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-10-28T20:26:12.450Z" hostname="MB-ycshin" time="0.005">
+  <properties/>
+  <testcase name="대기중인_이벤트가_없으면_아무것도_처리하지_않는다()" classname="com.company.outbox.core.OutboxProcessorTestWithoutMocks" time="0.004"/>
+  <testcase name="Kafka_발행에_실패하면_상태를_FAILED로_변경한다()" classname="com.company.outbox.core.OutboxProcessorTestWithoutMocks" time="0.0"/>
+  <testcase name="대기중인_이벤트를_Kafka로_발행하고_상태를_PUBLISHED로_변경한다()" classname="com.company.outbox.core.OutboxProcessorTestWithoutMocks" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>
