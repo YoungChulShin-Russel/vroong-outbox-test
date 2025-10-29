@@ -1,0 +1,127 @@
+{
+  "type": "record",
+  "name": "OrderCreatedEventPayload",
+  "namespace": "vroong.laas.common.event.avro.payload.order",
+  "doc": "주문 생성 이벤트 페이로드",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "long",
+      "doc": "주문 ID"
+    },
+    {
+      "name": "orderNumber",
+      "type": "string",
+      "doc": "주문 번호"
+    },
+    {
+      "name": "orderStatus",
+      "type": "string",
+      "doc": "주문 상태"
+    },
+    {
+      "name": "originLocation",
+      "type": {
+        "type": "record",
+        "name": "OrderLocation",
+        "doc": "주문 위치 정보",
+        "fields": [
+          {
+            "name": "contactName",
+            "type": "string",
+            "doc": "연락처 이름"
+          },
+          {
+            "name": "contactPhoneNumber",
+            "type": "string",
+            "doc": "연락처 전화번호"
+          },
+          {
+            "name": "latitude",
+            "type": {
+              "type": "bytes",
+              "logicalType": "decimal",
+              "precision": 10,
+              "scale": 7
+            },
+            "doc": "위도"
+          },
+          {
+            "name": "longitude",
+            "type": {
+              "type": "bytes",
+              "logicalType": "decimal",
+              "precision": 10,
+              "scale": 7
+            },
+            "doc": "경도"
+          },
+          {
+            "name": "jibunAddress",
+            "type": "string",
+            "doc": "지번 주소"
+          },
+          {
+            "name": "roadAddress",
+            "type": "string",
+            "doc": "도로명 주소"
+          },
+          {
+            "name": "detailAddress",
+            "type": "string",
+            "doc": "상세 주소"
+          }
+        ]
+      },
+      "doc": "출발지 정보"
+    },
+    {
+      "name": "destinationLocation",
+      "type": "OrderLocation",
+      "doc": "도착지 정보"
+    },
+    {
+      "name": "items",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "OrderItem",
+          "doc": "주문 항목",
+          "fields": [
+            {
+              "name": "itemName",
+              "type": "string",
+              "doc": "상품명"
+            },
+            {
+              "name": "quantity",
+              "type": "int",
+              "doc": "수량"
+            },
+            {
+              "name": "price",
+              "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 19,
+                "scale": 2
+              },
+              "doc": "가격"
+            }
+          ]
+        }
+      },
+      "doc": "주문 항목 목록"
+    },
+    {
+      "name": "orderedAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "주문 시각"
+    }
+  ]
+}
+

@@ -1,0 +1,37 @@
+{
+  "type": "record",
+  "name": "DeliveryDeliveredEventPayload",
+  "namespace": "vroong.laas.common.event.avro.payload.delivery",
+  "doc": "배송 완료 이벤트 페이로드",
+  "fields": [
+    {
+      "name": "deliveryId",
+      "type": "long",
+      "doc": "배송 ID"
+    },
+    {
+      "name": "orderId",
+      "type": "long",
+      "doc": "주문 ID"
+    },
+    {
+      "name": "agentId",
+      "type": "long",
+      "doc": "배송 기사 ID"
+    },
+    {
+      "name": "deliveryStatus",
+      "type": "string",
+      "doc": "배송 상태"
+    },
+    {
+      "name": "deliveredAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "배송 완료 시각"
+    }
+  ]
+}
+

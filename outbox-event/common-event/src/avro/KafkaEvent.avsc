@@ -1,0 +1,38 @@
+{
+  "type": "record",
+  "name": "KafkaEvent",
+  "namespace": "vroong.laas.common.event.avro",
+  "doc": "공통 Kafka 이벤트 래퍼. 모든 도메인 이벤트를 감싸는 표준 구조",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string",
+      "doc": "이벤트 고유 식별자 (UUID)"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "이벤트 타입 (예: order.order.created)"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "doc": "이벤트 발행 소스 (예: ORDER, DELIVERY, DISPATCH)"
+    },
+    {
+      "name": "timestamp",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "이벤트 발행 시각 (epoch millis)"
+    },
+    {
+      "name": "payload",
+      "type": ["null", "bytes"],
+      "default": null,
+      "doc": "실제 이벤트 데이터 (직렬화된 페이로드)"
+    }
+  ]
+}
+

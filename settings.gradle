@@ -1,4 +1,9 @@
 rootProject.name = 'vroong-outbox-test'
 
 include 'outbox-core'
+include 'outbox-event'
+include 'outbox-event:common-event'
+include 'outbox-event:order-event'
+include 'outbox-event:dispatch-event'
+include 'outbox-event:delivery-event'
 include 'outbox-springboot-4x'

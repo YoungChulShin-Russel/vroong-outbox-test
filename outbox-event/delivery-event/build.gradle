@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    avroTools
+}
+
+dependencies {
+    avroTools 'org.apache.avro:avro-tools:1.12.0'
+    implementation project(':outbox-event:common-event')
+    implementation 'org.apache.avro:avro:1.12.0'
+}
+
+tasks.register('generateAvroJava', JavaExec) {
+    classpath = configurations.avroTools
+    mainClass = 'org.apache.avro.tool.Main'
+    args = ['compile', 'schema', 'src/avro', 'build/generated-main-avro-java']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'build/generated-main-avro-java'
+        }
+    }
+}
+
+compileJava.dependsOn generateAvroJava

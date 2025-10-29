@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.company'
-version = '1.0.0'
+version = '0.0.1'
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.42'

@@ -1,0 +1,37 @@
+{
+  "type": "record",
+  "name": "DispatchDispatchedEventPayload",
+  "namespace": "vroong.laas.common.event.avro.payload.dispatch",
+  "doc": "배차 완료 이벤트 페이로드",
+  "fields": [
+    {
+      "name": "dispatchId",
+      "type": "long",
+      "doc": "배차 ID"
+    },
+    {
+      "name": "orderId",
+      "type": "long",
+      "doc": "주문 ID"
+    },
+    {
+      "name": "agentId",
+      "type": "long",
+      "doc": "배송 기사 ID"
+    },
+    {
+      "name": "dispatchStatus",
+      "type": "string",
+      "doc": "배차 상태"
+    },
+    {
+      "name": "dispatchedAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      },
+      "doc": "배차 완료 시각"
+    }
+  ]
+}
+
