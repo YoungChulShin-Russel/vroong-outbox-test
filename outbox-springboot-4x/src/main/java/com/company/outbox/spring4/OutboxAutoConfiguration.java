@@ -21,7 +21,8 @@ public class OutboxAutoConfiguration {
                                          MessagePublisher messagePublisher) {
         return new OutboxProcessor(outboxRepository, messagePublisher);
     }
-    
+
+    // todo: 고도화 필요
     @Bean
     @ConditionalOnMissingBean
     public ObjectMapper objectMapper() {

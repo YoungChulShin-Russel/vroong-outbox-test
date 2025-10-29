@@ -34,7 +34,7 @@ public class JpaOutboxRepository implements OutboxRepository {
     @Override
     @Transactional(readOnly = true)
     public List<OutboxEvent> findByStatus(OutboxEventStatus status) {
-        return springDataRepository.findByStatus(status)
+        return springDataRepository.findByStatusOrderByCreatedAt(status)
                 .stream()
                 .map(OutboxEventEntity::toDomain)
                 .toList();

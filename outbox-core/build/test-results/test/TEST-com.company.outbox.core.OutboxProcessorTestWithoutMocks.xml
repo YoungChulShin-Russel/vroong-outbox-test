@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.company.outbox.core.OutboxProcessorTestWithoutMocks" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-10-29T09:12:34.811Z" hostname="MB-ycshin" time="0.005">
+<testsuite name="com.company.outbox.core.OutboxProcessorTestWithoutMocks" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-10-29T10:10:13.676Z" hostname="MB-ycshin" time="0.005">
   <properties/>
   <testcase name="대기중인_이벤트가_없으면_아무것도_처리하지_않는다()" classname="com.company.outbox.core.OutboxProcessorTestWithoutMocks" time="0.004"/>
   <testcase name="Kafka_발행에_실패하면_상태를_FAILED로_변경한다()" classname="com.company.outbox.core.OutboxProcessorTestWithoutMocks" time="0.001"/>

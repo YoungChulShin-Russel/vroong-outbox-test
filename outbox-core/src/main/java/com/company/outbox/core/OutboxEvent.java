@@ -8,24 +8,18 @@ public class OutboxEvent {
     private Long id;
     private String aggregateId;
     private String type;
-    private String payload;
+    private byte[] payload;
     private OutboxEventStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime publishedAt;
 
-    public OutboxEvent() {
-    }
-
-    public OutboxEvent(String aggregateId, String type, String payload) {
+    public OutboxEvent(Long id, String aggregateId, String type, byte[] payload) {
+        this.id = id;
         this.aggregateId = aggregateId;
         this.type = type;
         this.payload = payload;
         this.status = OutboxEventStatus.PENDING;
         this.createdAt = LocalDateTime.now();
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void markAsPublished() {

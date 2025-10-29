@@ -4,6 +4,7 @@ import com.company.outbox.core.OutboxEvent;
 import com.company.outbox.core.OutboxEventStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "outbox_events")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class OutboxEventEntity {
     
     @Id
@@ -25,8 +27,8 @@ public class OutboxEventEntity {
     @Column(name = "type", nullable = false, length = 128)
     private String type;
     
-    @Column(name = "payload", nullable = false, columnDefinition = "TEXT")
-    private String payload;
+    @Column(name = "payload", nullable = false, columnDefinition = "LONGBLOB")
+    private byte[] payload;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
@@ -37,22 +39,14 @@ public class OutboxEventEntity {
     
     @Column(name = "published_at")
     private LocalDateTime publishedAt;
-    
-    public OutboxEventEntity(String aggregateId, String type, String payload) {
-        this.aggregateId = aggregateId;
-        this.type = type;
-        this.payload = payload;
-        this.status = OutboxEventStatus.PENDING;
-        this.createdAt = LocalDateTime.now();
-    }
-    
+
     public static OutboxEventEntity from(OutboxEvent outboxEvent) {
-        OutboxEventEntity entity = new OutboxEventEntity(
-            outboxEvent.getAggregateId(),
-            outboxEvent.getType(),
-            outboxEvent.getPayload()
-        );
+        OutboxEventEntity entity = new OutboxEventEntity();
+
         entity.id = outboxEvent.getId();
+        entity.aggregateId = outboxEvent.getAggregateId();
+        entity.type = outboxEvent.getType();
+        entity.payload = outboxEvent.getPayload();
         entity.status = outboxEvent.getStatus();
         entity.createdAt = outboxEvent.getCreatedAt();
         entity.publishedAt = outboxEvent.getPublishedAt();
@@ -60,8 +54,7 @@ public class OutboxEventEntity {
     }
     
     public OutboxEvent toDomain() {
-        OutboxEvent event = new OutboxEvent(aggregateId, type, payload);
-        event.setId(id);
+        OutboxEvent event = new OutboxEvent(id, aggregateId, type, payload);
         if (status == OutboxEventStatus.PUBLISHED) {
             event.markAsPublished();
         } else if (status == OutboxEventStatus.FAILED) {
@@ -77,9 +70,5 @@ public class OutboxEventEntity {
     
     public void markAsFailed() {
         this.status = OutboxEventStatus.FAILED;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
     }
 }
