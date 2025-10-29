@@ -1,0 +1,41 @@
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+*.temp
+
+# Generated sources (Avro)
+**/generated-main-avro-java/
+**/generated-test-avro-java/
+
+# Other
+node_modules/
+*.swp
+*.swo
+*~
